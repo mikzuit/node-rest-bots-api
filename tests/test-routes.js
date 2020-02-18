@@ -44,3 +44,26 @@ describe('POST /robots', function () {
             .expect(200, done);
     });
 });
+
+describe('PUT /robots/:robotId', function () {
+    var robot = {
+        "armors": [
+            "invisible shield"
+        ],
+        "name": "sean",
+        "weapons": [
+            "map",
+            "code"
+        ],
+        "type": "tactirobot"
+    };
+    it('respond with json robot updated', function(done) {
+        request(app)
+            .put('/robots/5e4be0c28c2308002be45043')
+            .send(robot)
+            .set('Accept', 'application/json')
+            .expect('Content-Type', /json/)
+            .expect(200, done);
+    });
+});
+
