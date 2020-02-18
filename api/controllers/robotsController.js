@@ -48,3 +48,19 @@ exports.delete_a_robot = function(req, res) {
         res.json({ message: 'Robot Succesfully deleted'});
     });
 };
+
+exports.list_robots_by_filter_armor = function(req, res) {
+    Robot.find({ armors: [req.params.filterstring]}, function(err, robots) {
+        if(err)
+            res.send(err);
+        res.json(robots);
+    });
+};
+
+exports.list_robots_by_filter_weapon = function(req, res) {
+    Robot.find({ weapon: [req.params.filterstring]}, function(err, robots) {
+        if(err)
+            res.send(err);
+        res.json(robots);
+    });
+};

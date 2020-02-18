@@ -86,3 +86,24 @@ describe('DELETE /robots/:robotId', function () {
     });
 });
 
+
+describe('GET /robots/armor/:filterstring', function () {
+    it('respond with json list of robots', function(done) {
+        request(app)
+            .get('/robots/armor/shield')
+            .set('Accept', 'application/json')
+            .expect('Content-Type', /json/)
+            .expect(200, done);
+    });
+});
+
+describe('GET /robots/weapon/:filterstring', function () {
+    it('respond with json list of robots', function(done) {
+        request(app)
+            .get('/robots/weapon/laser')
+            .set('Accept', 'application/json')
+            .expect('Content-Type', /json/)
+            .expect(200, done);
+    });
+});
+

@@ -11,4 +11,10 @@ module.exports = function(app) {
         .get(robotController.get_one_robot)
         .put(robotController.update_a_robot)
         .delete(robotController.delete_a_robot);
+
+    app.route('/robots/armor/:filterstring')
+        .get(robotController.list_robots_by_filter_armor);
+
+    app.route('/robots/weapon/:filterstring')
+        .get(robotController.list_robots_by_filter_weapon);
 }
