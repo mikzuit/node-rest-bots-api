@@ -8,6 +8,7 @@ module.exports = function(app) {
         .post(robotController.create_a_robot);
     
     app.route('/robots/:robotId')
+        .get(robotController.get_one_robot)
         .put(robotController.update_a_robot)
         .delete(robotController.delete_a_robot);
 }

@@ -21,6 +21,15 @@ describe('GET /robots', function () {
     });
 });
 
+describe('GET /robots/:robotId', function () {
+    it('respond with json one robots', function(done) {
+        request(app)
+            .get('/robots/5e4be0c28c2308002be45043')
+            .set('Accept', 'application/json')
+            .expect('Content-Type', /json/)
+            .expect(200, done);
+    });
+});
 
 describe('POST /robots', function () {
     var robot = {

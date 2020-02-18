@@ -22,6 +22,15 @@ exports.get_all_robots = function(req, res) {
     });
 };
 
+// read a robot on get and return json
+exports.get_one_robot = function(req, res) {
+    Robot.findById(req.params.robotId, function(err, robot) {
+        if (err)
+            res.send(err);
+        res.json(robot);
+    });
+};
+
 // update a robot on put and return json
 exports.update_a_robot = function(req, res) {
     Robot.findOneAndUpdate({_id: req.params.robotId}, req.body, {new: true}, function(err, robot) {
