@@ -32,3 +32,6 @@ app.use(function(req, res) {
 // listen
 app.listen(port)
 console.log("Robot api started on " + port);
+
+// in order to run tests
+module.exports = app;

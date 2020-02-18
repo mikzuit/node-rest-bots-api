@@ -7,6 +7,8 @@ RUN apk add --no-cache --virtual .gyp \
     && apk del .gyp \
     && mkdir -p /usr/src/app
 
+USER node
+
 ADD package.json /usr/src/app
 ADD package-lock.json /usr/src/app
 

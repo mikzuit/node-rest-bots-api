@@ -4,8 +4,9 @@
   "description": "tdd restful api",
   "main": "server.js",
   "scripts": {
-    "test": "mocha test 'tests'",
-    "start": "node server.js"
+    "test": "mocha --timeout 10000 --recursive tests/test-routes.js",
+    "start": "nodemon server.js",
+    "start-prod": "pm2 start server.js --name robots-api"
   },
   "repository": {
     "type": "git",
@@ -31,6 +32,7 @@
     "body-parser": "^1.19.0",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
-    "mongoose": "^5.9.1"
+    "mongoose": "^5.9.1",
+    "pm2": "^4.2.3"
   }
 }
