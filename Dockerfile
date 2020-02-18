@@ -6,6 +6,10 @@ RUN apk add --no-cache --virtual .gyp \
     g++ \
     && apk del .gyp
 
+ADD package*.json /usr/src/app
+
 WORKDIR  /usr/src/app
 
 EXPOSE 3000
+
+CMD ["npm install"]
