@@ -13,7 +13,8 @@ var express = require('express'),
 mongoose.Promise = global.Promise;
 mongoose.connect(config.db[app.settings.env], {
     useNewUrlParser: true, // Required for mongo latest version
-    useUnifiedTopology: true // Required for mongo latest version
+    useUnifiedTopology: true, // Required for mongo latest version
+    useFindAndModify: false
 });
 
 // setting extra config dependencies . should use parsers, helmet, cors, and other too

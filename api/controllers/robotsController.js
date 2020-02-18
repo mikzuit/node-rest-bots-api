@@ -30,3 +30,12 @@ exports.update_a_robot = function(req, res) {
         res.json(robot);
     });
 };
+
+// delete a robot on put and return OK
+exports.delete_a_robot = function(req, res) {
+    Robot.deleteOne({_id: req.params.robotId}, function(err, robot) {
+        if(err)
+            res.send(err);
+        res.json({ message: 'Robot Succesfully deleted'});
+    });
+};

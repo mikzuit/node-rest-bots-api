@@ -67,3 +67,13 @@ describe('PUT /robots/:robotId', function () {
     });
 });
 
+describe('DELETE /robots/:robotId', function () {
+    it('respond with robot deleted', function(done) {
+        request(app)
+            .delete('/robots/5e4be0c28c2308002be45043')
+            .set('Accept', 'application/json')
+            .expect('Content-Type', /json/)
+            .expect(200, done);
+    });
+});
+
