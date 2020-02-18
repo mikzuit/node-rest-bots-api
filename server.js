@@ -22,7 +22,7 @@ app.use(bodyParser.json());
 
 // home route
 app.get("/", (req,res, next) => {
-    res.json(["Laura", "Sean", "Jordan", "Mik"]);
+    res.json(["Hey", "there", "tester"]);
 });
 
 // require routes

@@ -11,3 +11,11 @@ exports.create_a_robot = function(req, res) {
         res.json(robot);
     });
 };
+
+exports.get_all_robots = function(req, res) {
+    Robot.find({}, function(err, robots) {
+        if (err)
+            res.send(err);
+        res.json(robots);
+    });
+};
