@@ -1,0 +1,16 @@
+version: "3.4"
+
+services:
+  robots-api:
+    build: .
+    env_file:
+      - .env
+    command: npm start
+    ports:
+      - "3000:3000"
+    depends_on:
+      - robots-mongodb
+    volumes:
+      - .:/usr/src/app
+  robots-mongodb:
+    image: mongo:4.0
