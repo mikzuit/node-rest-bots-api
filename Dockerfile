@@ -4,9 +4,11 @@ RUN apk add --no-cache --virtual .gyp \
     python \
     make \
     g++ \
-    && apk del .gyp
+    && apk del .gyp \
+    && mkdir -p /usr/src/app
 
-ADD package*.json /usr/src/app
+ADD package.json /usr/src/app
+ADD package-lock.json /usr/src/app
 
 WORKDIR  /usr/src/app
 
