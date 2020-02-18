@@ -6,7 +6,8 @@ var express = require('express'),
     port = process.env.PORT || 3000,
     mongoose = require('mongoose'),
     bodyParser = require('body-parser'),
-    config = require('./config');
+    config = require('./config')
+    Robot = require('./api/models/robotsModel');
 
 // setting orm mongoose
 mongoose.Promise = global.Promise;
@@ -23,6 +24,10 @@ app.use(bodyParser.json());
 app.get("/", (req,res, next) => {
     res.json(["Laura", "Sean", "Jordan", "Mik"]);
 });
+
+// require routes
+var routes = require('./api/routes/robotsRoutes');
+routes(app);
 
 // 404 for 'other routes'
 app.use(function(req, res) {
